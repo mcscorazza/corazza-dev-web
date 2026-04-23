@@ -14,18 +14,22 @@ export interface Post {
   id: string;
   title: string;
   slug: string;
-  summary?: string;
+  summary: string;
   content: string;
+  order: number;
+  coverImage: string;
+  author: string;
+  date: string;
   line: Line;
   createdAt: string;
   updatedAt?: string;
 }
 
-  export interface TrailSummary {
-    id: string;
-    title: string;
-    lines: string[];
-    slug: string;
-    linesCount: number;
-    postsCount: number;
-  }
+export interface TrailSummary {
+  id: string;
+  title: string;
+  lines: string[];
+  slug: string;
+  linesCount: number;
+  postsCount: number;
+}

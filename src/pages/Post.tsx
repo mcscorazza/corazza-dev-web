@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { Post, TrailSummary } from '../@types';
 
 
@@ -51,15 +51,14 @@ export function PostPage() {
   if (!currentPost) return <div className="p-10 text-center">Carregando post...</div>;
 
   return (
-    <div className="max-w-[1350px] mx-auto grid grid-cols-1 lg:grid-cols-[275px_1fr_275px]">
-
-      <aside className="hidden lg:block bg-slate-100">
-        <div className='sticky top-10 p-4'>
-          <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">
+    <div className="w-full mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1000px_1fr]">
+      <aside className="hidden lg:block bg-slate-900/30">
+        <div className='sticky top-10 p-8'>
+          <h3 className="text-sm font-bold text-slate-200 uppercase tracking-widest mb-6">
             {currentPost.line.title}
           </h3>
 
-          <div className="relative border-l-8 border-violet-400 ml-3 py-2">
+          <div className="relative border-l-8 border-cyan-500 ml-3 py-2">
             {linePosts.map((p) => {
               const isCurrent = p.slug === currentPost.slug;
               const isPast = linePosts.findIndex(x => x.slug === p.slug) <
@@ -67,15 +66,15 @@ export function PostPage() {
 
               return (
                 <div key={p.slug} className="mb-4 ml-6 relative">
-                  <div className={`absolute -left-[36px] top-1 w-4 h-4 rounded-full border-2 bg-white 
-                ${isCurrent ? 'border-violet-600 scale-125' : 'border-slate-900'}`}
+                  <div className={`absolute -left-9 top-1 w-4 h-4 rounded-full border-2 bg-slate-100 
+                ${isCurrent ? 'border-cyan-600 scale-150' : 'border-slate-700'}`}
                   />
 
                   <Link
                     to={`/post/${trailSlug}/${lineSlug}/${p.slug}`}
                     className={`text-sm transition-colors block
-                  ${isCurrent ? 'font-bold text-slate-900' :
-                        isPast ? 'text-slate-600 hover:text-blue-500' : 'text-slate-400 hover:text-slate-600'}`}
+                  ${isCurrent ? 'font-bold text-cyan-200' :
+                        isPast ? 'text-slate-500 hover:text-cyan-500' : 'text-slate-300 hover:text-slate-600'}`}
                   >
                     {p.title}
                   </Link>
@@ -86,11 +85,12 @@ export function PostPage() {
         </div>
       </aside>
 
-      <article className="prose prose-sky lg:prose-xl max-w-[800px] bg-[#FFFAFA]">
-        <Link title="Voltar" to="/" className="text-blue-600 hover:underline mb-8 block p-4">
-          ← Voltar para a lista
-        </Link>
-        <div className="prose prose-sm md:prose-base max-w-none font-sans p-6">
+      <article className="prose prose-sky lg:prose-xl max-w-300 p-6">
+        <h1 className='text-center'>Estação #{currentPost.order.toString().padStart(2, '0')}</h1>
+        <h2 className='text-center'>{currentPost.title}</h2>
+        <img className='w-full m-4 rounded-xl' src={currentPost.coverImage} />
+        <blockquote className='text-cyan-100'>{currentPost.summary}</blockquote>
+        <div className="prose prose-sm md:prose-base max-w-none font-sans p-6 rounded-xl bg-[#37474f]">
           <ReactMarkdown
             rehypePlugins={[rehypeRaw]}
             remarkPlugins={[remarkGfm]}
@@ -112,13 +112,13 @@ export function PostPage() {
                   center: 'max-w-[70%] mx-auto display-block'
                 };
 
-                const customClass = label ? classMap[label] : 'max-w-[70%] mx-auto';
+                const customClass = label ? classMap[label] : 'w-full rounded-xl';
 
                 return (
                   <figure className="text-center my-10">
                     <img src={url} className={customClass} />
                     {props.alt && (
-                      <figcaption className="text-sm text-gray-500 mt-2 italic">
+                      <figcaption className="text-sm text-gray-200 mt-2 italic">
                         {props.alt}
                       </figcaption>
                     )}
@@ -129,7 +129,7 @@ export function PostPage() {
                 const match = /language-(\w+)/.exec(className || '');
                 return !inline && match ? (
                   <SyntaxHighlighter
-                    style={oneLight}
+                    style={vscDarkPlus}
                     customStyle={{
                       backgroundColor: 'transparent',
                       padding: 0,
@@ -155,9 +155,9 @@ export function PostPage() {
         </div>
       </article>
 
-      <aside className="hidden lg:block bg-slate-100">
-        <div className='sticky top-10 p-4'>
-          <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">
+      <aside className="hidden lg:block bg-slate-900/30">
+        <div className='sticky top-10 p-8'>
+          <h3 className="text-sm font-bold text-slate-100 uppercase tracking-widest mb-6">
             Explorar Conteúdo
           </h3>
 
@@ -169,27 +169,27 @@ export function PostPage() {
               return (
                 <div
                   key={trail.id}
-                  className={`rounded-2xl border transition-all overflow-hidden ${isCurrentTrail ? 'border-violet-200 shadow-sm' : 'border-slate-100'
+                  className={`rounded-2xl border-2 transition-all overflow-hidden ${isCurrentTrail ? 'border-cyan-400 bg-cyan-950 shadow-sm' : 'border-slate-800'
                     }`}
                 >
                   <button
                     onClick={() => setExpandedTrail(isExpanded ? null : trail.slug)}
-                    className={`w-full text-left p-4 flex flex-col transition-colors ${isExpanded ? 'bg-slate-50' : 'bg-white hover:bg-slate-200'
+                    className={`w-full text-left p-4 flex flex-col transition-colors ${isExpanded ? 'bg-slate-950/30' : 'bg-slate-900/50 hover:bg-slate-700'
                       }`}
                   >
                     <div className="flex flex-row items-center justify-between w-full">
-                      <h4 className={`font-bold text-sm !mt-1 hover:text-violet-600 ${isCurrentTrail ? 'text-violet-600' : 'text-slate-900'}`}>
+                      <h4 className={`font-bold text-sm !mt-1 hover:text-cyan-600 ${isCurrentTrail ? 'text-cyan-800' : 'text-slate-400'}`}>
                         <Link to={`/trail/${trail.slug}`}>{trail.title}</Link>
                       </h4>
-                      <span className="text-[14px] text-slate-400 ">{isExpanded ? '▲' : '▼'}</span>
+                      <span className="text-[14px] text-slate-300 ">{isExpanded ? '▲' : '▼'}</span>
                     </div>
-                    <span className="text-[10px] font-medium text-slate-400 uppercase">
+                    <span className="text-[10px] font-medium text-slate-600 uppercase">
                       {trail.lines.length} Linhas • {trail.postsCount} Estações
                     </span>
                   </button>
 
                   {isExpanded && (
-                    <div className="bg-white p-2 flex flex-col gap-1 border-t border-slate-100">
+                    <div className="bg-slate-900/50 p-2 flex flex-col gap-1 border-t border-slate-900">
                       {trail.lines.map((line: any) => {
                         const isCurrentLine = trail.slug === currentPost?.line?.trail?.slug && line.slug === currentPost?.line?.slug;
 
@@ -198,8 +198,8 @@ export function PostPage() {
                             key={line.slug}
                             to={`/post/${trail.slug}/${line.slug}/${line.firstPostSlug}`}
                             className={`text-xs p-3 rounded-lg flex items-center justify-between group transition-all ${isCurrentLine
-                              ? 'bg-violet-600 text-white font-bold'
-                              : 'text-slate-600 hover:bg-blue-50 hover:text-blue-600'
+                              ? 'bg-cyan-800 text-slate-300 font-bold'
+                              : 'text-slate-600 hover:bg-cyan-700 hover:text-cyan-200'
                               }`}
                           >
                             <span>{line.title}</span>

@@ -16,7 +16,7 @@ export default function App() {
         setLoading(false);
       })
       .catch((err) => console.error("Erro:", err));
-  }, []);
+  }, [apiUrl]);
 
   if (loading) return <div className="p-20 text-center text-slate-400">Carregando...</div>;
 
