@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+p {
+  text-align: justify;
+}
+
+.prose h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+.prose h1 {
+  font-size: 1.75em;
+  line-height: 2em;
+  margin: 0;
+  font-weight: 900;
+}
+
+.prose h2 {
+  border-top: 1px solid #ddd;
+  font-size: 1.4em;
+  font-weight: 700;
+  line-height: 1.5em;
+  font-style: italic;
+  margin: 0;
+}
+
+.prose h3 {
+  font-size: 1.2em;
+}
+
+.prose h4 {
+  font-size: 1.1em;
+}
+
+.prose h5 {
+  font-size: 1em;
+}
+
+
+
+.prose pre {
+  background-color: #f8fafc !important;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem !important;
+  margin: 1rem 0 !important;
+}
+
+.prose pre code {
+  display: block !important;
+  padding: 0.25rem !important;
+  width: 100%;
+}
+
+.prose code::before,
+.prose code::after {
+  content: "" !important;
+  display: none !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.prose :not(pre)>code {
+  background-color: #f1f5f9;
+  color: #334155;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.prose table {
+  max-width: 60%;
+  font-size: 0.85em;
+  margin: 0 auto;
+  margin-top: 2em;
+}
+
+.prose table td {
+  padding: 0.25em;
+}
+
+.prose table th {
+  font-weight: 700;
+  padding: 0.25em;
+}
+
+.prose table tbody td:first-child {
+  font-weight: 600;
+  color: #111827;
+  white-space: nowrap;
+}
+
+.prose img {
+  margin: 0 auto;
+  box-shadow: none;
+}
+
