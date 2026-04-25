@@ -7,6 +7,7 @@ import rehypeRaw from 'rehype-raw';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { Post, TrailSummary } from '../@types';
+import { formatCustomDate } from '../../utils/formatDate.js'
 
 
 export function PostPage() {
@@ -18,7 +19,7 @@ export function PostPage() {
   const [linePosts, setLinePosts] = useState<Post[]>([]);
   const [allTrails, setAllTrails] = useState<TrailSummary[]>([]);
 
-  const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+  const apiUrl = import.meta.env.VITE_API_URL || 'https://api.corazza.dev/api';
 
   useEffect(() => {
     axios.get(`${apiUrl}/posts/${trailSlug}/${lineSlug}/${postSlug}`)
@@ -86,10 +87,14 @@ export function PostPage() {
       </aside>
 
       <article className="prose prose-sky lg:prose-xl max-w-300 p-6">
-        <h1 className='text-center'>Estação #{currentPost.order.toString().padStart(2, '0')}</h1>
-        <h2 className='text-center'>{currentPost.title}</h2>
-        <img className='w-full m-4 rounded-xl' src={currentPost.coverImage} />
-        <blockquote className='text-cyan-100'>{currentPost.summary}</blockquote>
+        <h1 className='text-4xl! text-cyan-50! drop-shadow-sm font-extrabold'>Estação #{currentPost.order.toString().padStart(2, '0')}</h1>
+        <div className='relative m-4 rounded-xl overflow-hidden'>
+          <img className='w-full object-cover' src={currentPost.coverImage} />
+          <h2 className='absolute inset-0 bg-black/70 text-cyan-200! flex items-end justify-start drop-shadow-xl m-0! p-6 text-4xl! font-bold'>{currentPost.title}</h2>
+        </div>
+        <small className='text-center block tracking-wider text-sm text-cyan-200'>{currentPost.author} | {formatCustomDate(currentPost.date)} | {currentPost.tags}</small>
+        <blockquote className='text-slate-300 text-base text-justify leading-relaxed'>{currentPost.summary}</blockquote>
+
         <div className="prose prose-sm md:prose-base max-w-none font-sans p-6 rounded-xl bg-[#37474f]">
           <ReactMarkdown
             rehypePlugins={[rehypeRaw]}

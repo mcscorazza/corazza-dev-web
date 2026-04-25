@@ -20,6 +20,7 @@ export interface Post {
   coverImage: string;
   author: string;
   date: string;
+  tags: string;
   line: Line;
   createdAt: string;
   updatedAt?: string;

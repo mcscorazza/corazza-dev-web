@@ -36,15 +36,6 @@ h5 {
   font-weight: 900;
 }
 
-.prose h2 {
-  border-top: 1px solid #ddd;
-  font-size: 1.4em;
-  font-weight: 700;
-  line-height: 2.5em;
-  font-style: italic;
-  margin: 0;
-}
-
 .prose h3 {
   font-size: 1.2em;
 }
