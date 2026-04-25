@@ -88,7 +88,7 @@ export function PostPage() {
 
       <article className="prose prose-sky lg:prose-xl max-w-300 p-6">
         <h1 className='text-4xl! text-cyan-50! drop-shadow-sm font-extrabold'>Estação #{currentPost.order.toString().padStart(2, '0')}</h1>
-        <div className='relative m-4 rounded-xl overflow-hidden'>
+        <div className='relative rounded-xl overflow-hidden'>
           <img className='w-full object-cover' src={currentPost.coverImage} />
           <h2 className='absolute inset-0 bg-black/70 text-cyan-200! flex items-end justify-start drop-shadow-xl m-0! p-6 text-4xl! font-bold'>{currentPost.title}</h2>
         </div>
