@@ -89,8 +89,8 @@ export function PostPage() {
       <article className="prose prose-sky p-1 lg:prose-xl max-w-300 lg:p-6">
         <h1 className='text-4xl! text-cyan-50! drop-shadow-sm font-extrabold'>Estação #{currentPost.order.toString().padStart(2, '0')}</h1>
         <div className='relative rounded-sm lg:rounded-xl overflow-hidden'>
-          <img className='w-full object-cover' src={currentPost.coverImage} />
-          <h2 className='absolute inset-0 bg-black/70 text-cyan-200! flex items-end justify-start drop-shadow-xl m-0! p-6 text-4xl! font-bold'>{currentPost.title}</h2>
+          <img className='w-full object-cover min-h-20' src={currentPost.coverImage} />
+          <h2 className='absolute inset-0 bg-black/50 text-cyan-200! flex items-end justify-start drop-shadow-xl m-0! p-6 text-xl! lg:text-4xl! font-bold'>{currentPost.title}</h2>
         </div>
         <small className='text-center block tracking-wider text-sm text-cyan-200'>{currentPost.author} | {formatCustomDate(currentPost.date)} | {currentPost.tags}</small>
         <blockquote className='text-slate-300 text-base text-justify leading-relaxed'>{currentPost.summary}</blockquote>
