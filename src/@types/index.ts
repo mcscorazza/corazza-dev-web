@@ -1,12 +1,16 @@
 export interface Trail {
   title: string;
   slug: string;
+  postsCount: number;
+  lines: Line[];
 }
 
 export interface Line {
   id: string;
   title: string;
   slug: string;
+  color?: string;
+  firstPostSlug?: string;
   trail: Trail;
 }
 
