@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export function TrailPage() {
   const { slug } = useParams();
-  const [trailData, setTrailData] = useState<Trail>(null);
+  const [trailData, setTrailData] = useState<any>(null);
   const apiUrl = import.meta.env.VITE_API_URL || 'https://api.corazza.dev/api';
 
   useEffect(() => {
