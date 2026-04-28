@@ -32,7 +32,7 @@ export const PostTrails = ({
             <div
               key={trail.slug}
               className={`rounded-2xl border-2 transition-all overflow-hidden 
-                ${isCurrentTrail ? 'border-[--line-color] bg-[--line-color]/5 shadow-sm' : 'border-slate-800'}`}
+                ${isCurrentTrail ? 'border-(--line-color) bg-(--line-color)/5 shadow-sm' : 'border-slate-800'}`}
             >
               <button
                 onClick={() => onToggleTrail(trail.slug)}
@@ -41,7 +41,7 @@ export const PostTrails = ({
               >
                 <div className="flex flex-row items-center justify-between w-full">
                   <h4 className={`font-bold text-sm mt-1! 
-                    ${isCurrentTrail ? 'text-[--line-color]' : 'text-slate-300'}`}>
+                    ${isCurrentTrail ? 'text-(--line-color)' : 'text-slate-300'}`}>
                     {trail.title}
                   </h4>
                   <span className="text-[14px] text-slate-500">
@@ -64,7 +64,7 @@ export const PostTrails = ({
                         to={`/post/${trail.slug}/${line.slug}/${line.firstPostSlug}`}
                         className={`text-xs p-3 rounded-lg flex items-center justify-between group transition-all 
                           ${isCurrentLine
-                            ? 'bg-[--line-color]/20 text-[--line-color] font-bold'
+                            ? 'bg-[--line-color]/20 text-(--line-color) font-bold'
                             : 'text-slate-400 hover:bg-slate-800 hover:text-slate-200'
                           }`}
                       >
