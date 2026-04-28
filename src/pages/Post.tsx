@@ -5,6 +5,7 @@ import { PostContent } from '../components/post/PostContent';
 import { PostSidebar } from '../components/post/PostSidebar';
 import axios from 'axios';
 import { PostTrails } from '../components/post/PostTrails';
+import { generatePalette } from '../../utils/generatePalette.js';
 import { useState } from 'react';
 
 export const PostPage = () => {
@@ -42,11 +43,12 @@ export const PostPage = () => {
   if (!currentPost) return <div className="p-10 text-center">Estação não encontrada.</div>;
 
   const lineColor = currentPost.line.color || "#64748b";
-  console.log(lineColor);
+  const palette = generatePalette(lineColor);
+  
 
   return (
     <div className="w-full mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1000px_1fr]"
-      style={{ '--line-color': lineColor } as React.CSSProperties}
+      style={{ '--main-color': palette[500], '--text-color' : palette[100], '--bg-color': palette[700] } as React.CSSProperties}
     >
 
       <aside className="hidden lg:block shrink-0">

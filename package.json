@@ -14,6 +14,7 @@
     "@tailwindcss/vite": "^4.2.2",
     "@tanstack/react-query": "^5.100.5",
     "axios": "^1.14.0",
+    "chroma-js": "^3.2.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-markdown": "^10.1.0",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@eslint/js": "^9.39.4",
     "@tailwindcss/typography": "^0.5.19",
+    "@types/chroma-js": "^3.1.2",
     "@types/node": "^24.12.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",

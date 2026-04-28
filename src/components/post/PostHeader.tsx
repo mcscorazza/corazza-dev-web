@@ -11,7 +11,7 @@ export const PostHeader = ({ post }: PostHeaderProps) => {
   return (
     <header className="mb-12">
 
-      <h1 className='text-4xl! text-cyan-50! drop-shadow-sm font-extrabold mb-4'>Estação #{stationNumber}</h1>
+      <h1 className='text-4xl! text-(--text-color)! drop-shadow-sm font-extrabold mb-4'>Estação #{stationNumber}</h1>
 
       <div className='relative rounded-sm lg:rounded-xl overflow-hidden'>
         {post.coverImage && (
@@ -19,14 +19,14 @@ export const PostHeader = ({ post }: PostHeaderProps) => {
             className="w-full object-cover min-h-20"
           />
         )}
-        <h2 className='absolute inset-0 bg-black/50 text-slate-50! flex items-end justify-start drop-shadow-xl m-0! p-6 text-xl! lg:text-4xl! font-bold'>{post.title}</h2>
+        <h2 className='absolute inset-0 bg-black/50 text-(--text-color)! flex items-end justify-start drop-shadow-xl m-0! p-6 text-xl! lg:text-4xl! font-bold'>{post.title}</h2>
       </div>
 
-      <small className='text-center block tracking-wider text-sm text-cyan-200 my-2'>{post.author} | {formatCustomDate(post.date)} | {post.tags}</small>
+      <small className='text-center block tracking-wider text-sm text-(--text-color) my-2'>{post.author} | {formatCustomDate(post.date)} | {post.tags}</small>
 
       <div className="flex justify-center items-center gap-4 mb-4">
         {post.tags && post.tags.split(',').map((tag, idx) => (
-          <span key={idx} className="text-slate-100 text-sm font-medium bg-(--line-color)/10 rounded-full py-1 px-4">
+          <span key={idx} className="text-(--text-color) text-sm font-medium bg-(--main-color)/50 rounded-full py-1 px-4">
             #{tag.trim()}
           </span>
         ))}
@@ -34,7 +34,7 @@ export const PostHeader = ({ post }: PostHeaderProps) => {
 
 
       {post.summary && (
-        <p className="text-sm text-slate-400 leading-relaxed border-l-4 border-(--line-color) pl-4">
+        <p className="text-sm text-(--text-color) leading-relaxed border-l-4 border-(--main-color) pl-4">
           {post.summary}
         </p>
       )}

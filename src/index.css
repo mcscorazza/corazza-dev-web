@@ -1,6 +1,27 @@
 @import "tailwindcss";
-
 @plugin "@tailwindcss/typography";
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  :root {
+    --bg-primary: #fafafa;
+    --text-primary: #0f172a;
+    --border-color: #f1f5f9;
+  }
+
+  .dark {
+    --bg-primary: #0f172a;
+    --text-primary: #f8fafc;
+    --border-color: #1e293b;
+  }
+}
+
+@theme {
+  --color-theme-bg: var(--bg-primary);
+  --color-theme-text: var(--text-primary);
+  --color-theme-border: var(--border-color);
+}
+
 
 * {
   box-sizing: border-box;
@@ -8,44 +29,11 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  color: #ffffff !important;
 }
 
 p {
   text-align: justify;
-}
-
-.prose {
-  color: #eceff1 !important;
-}
-
-.prose h1,
-h2,
-h3,
-h4,
-h5 {
-  margin-top: 2em;
-  margin-bottom: 0.5em;
-  color: #098cad;
-}
-
-.prose h1 {
-  font-size: 1.75em;
-  line-height: 2em;
-  margin-top: 0 !important;
-  font-weight: 900;
-}
-
-.prose h3 {
-  font-size: 1.2em;
-}
-
-.prose h4 {
-  font-size: 1.1em;
-}
-
-.prose h5 {
-  font-size: 1em;
+  color: #aaa;
 }
 
 .prose pre {

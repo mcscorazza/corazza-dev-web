@@ -26,10 +26,16 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             <Link to="/" className="text-xl font-black text-slate-50 tracking-tighter">
               CORAZZA<span className="text-blue-600">.DEV</span>
             </Link>
+          <button 
+  onClick={() => document.documentElement.classList.toggle('dark')}
+  className="p-2 mb-4 text-sm font-bold bg-theme-bg border border-theme-border text-theme-text rounded-lg shadow-sm hover:opacity-80 transition-opacity"
+>
+  🌓 Trocar Tema
+</button>
           </div>
         </header>
 
-        <main className="min-h-screen">
+        <main className="min-h-screen bg-theme-bg text-theme-text">
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="/post/:trailSlug/:lineSlug/:postSlug" element={<PostPage />} />
