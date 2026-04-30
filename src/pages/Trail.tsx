@@ -19,7 +19,7 @@ export function TrailPage() {
     <div className="max-w-5xl mx-auto py-20 px-6">
       <header className="mb-12">
         <Link to="/" className="text-blue-600 hover:underline">← Voltar para o início</Link>
-        <h1 className="text-5xl font-black text-slate-900 mt-4 uppercase">
+        <h1 className="text-5xl font-black text-theme-text mt-4 uppercase">
           {trailData.title}
         </h1>
         <p className="text-slate-500 mt-2">Explore as linhas de aprendizado desta trilha.</p>
@@ -27,17 +27,17 @@ export function TrailPage() {
 
       <div className="grid gap-8">
         {trailData.lines?.map((line: any) => (
-          <section key={line.id} className="bg-white border border-slate-200 rounded-2xl p-8">
-            <h2 className="text-2xl font-bold text-slate-800 mb-6">{line.title}</h2>
+          <section key={line.id} className="bg-theme-bg border border-theme-border rounded-2xl p-8">
+            <h2 className="text-2xl font-bold text-theme-text mb-6">{line.title}</h2>
             <div className="grid gap-3">
               {line.posts?.map((post: any) => (
                 <Link
                   key={post.id}
                   to={`/post/${slug}/${line.slug}/${post.slug}`}
-                  className="flex items-center justify-between p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors"
+                  className="flex items-center justify-between p-4 bg-theme-bg rounded-lg hover:bg-theme-bg2 transition-colors"
                 >
-                  <span className="font-medium text-slate-700">{post.title}</span>
-                  <span className="text-xs text-slate-400 font-bold uppercase tracking-widest">
+                  <span className="font-medium text-theme-text">{post.title}</span>
+                  <span className="text-xs text-theme-text2 font-bold uppercase tracking-widest">
                     Estação {post.order}
                   </span>
                 </Link>

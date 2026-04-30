@@ -18,7 +18,7 @@ export const PostTrails = ({
 }: TrailsProps) => {
 
   return (
-    <div className='sticky top-10 p-8'>
+    <div className='sticky top-28 p-6'>
       <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">
         Explorar Mapa
       </h3>

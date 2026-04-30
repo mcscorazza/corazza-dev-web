@@ -44,24 +44,35 @@ export const PostPage = () => {
 
   const lineColor = currentPost.line.color || "#64748b";
   const palette = generatePalette(lineColor);
-  
+
 
   return (
-    <div className="w-full mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1000px_1fr]"
-      style={{ '--main-color': palette[500], '--text-color' : palette[100], '--bg-color': palette[700] } as React.CSSProperties}
+    <div className="w-full mx-auto grid grid-cols-1 xl:grid-cols-[minmax(280px,1fr)_minmax(0,1000px)_minmax(280px,1fr)]"
+      style={{
+        '--line-color-50': palette[50],
+        '--line-color-100': palette[100],
+        '--line-color-200': palette[200],
+        '--line-color-300': palette[300],
+        '--line-color-400': palette[400],
+        '--line-color-500': palette[500],
+        '--line-color-600': palette[600],
+        '--line-color-700': palette[700],
+        '--line-color-800': palette[800],
+        '--line-color-900': palette[900],
+        '--line-color-950': palette[950],
+      } as React.CSSProperties}
     >
 
-      <aside className="hidden lg:block shrink-0">
+      <aside className="hidden xl:block min-w-0">
         <PostSidebar line={currentPost.line} posts={linePosts || []} currentPostSlug={currentPost.slug} />
       </aside>
 
-      <main className="prose prose-sky p-1 lg:prose-xl max-w-300 lg:p-6">
+      <main className="prose prose-sky p-1 xl:prose-xl mx-auto lg:p-4 min-w-0 max-w-full xl:max-w-250">
         <PostHeader post={currentPost} />
-        <div className="w-full h-px bg-slate-100 my-10" />
         <PostContent content={currentPost.content} />
       </main>
 
-      <aside className="hidden lg:block shrink-0 center">
+      <aside className="hidden xl:block min-w-0">
         <PostTrails
           allTrails={allTrails || []}
           expandedTrail={expandedTrail}
