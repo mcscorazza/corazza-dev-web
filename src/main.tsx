@@ -30,18 +30,18 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
               onClick={() => document.documentElement.classList.toggle('dark')}
               className="p-2 mb-4 text-sm font-bold bg-theme-bg border border-theme-border text-theme-text rounded-lg shadow-sm hover:opacity-80 transition-opacity"
             >
-              <svg className="block dark:hidden" width="20px" height="20px" viewBox="-5 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-                  <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-575.000000, -829.000000)" fill="#000000">
-                    <path d="M586.256,845 C586.256,838.1 590.735,832.236 597,829.991 C595.243,829.361 593.353,829 591.372,829 C582.33,829 575,836.164 575,845 C575,853.837 582.33,861 591.372,861 C593.353,861 595.243,860.639 597,860.009 C590.735,857.764 586.256,851.901 586.256,845" id="moon" sketch:type="MSShapeGroup">
+              <svg className="block dark:hidden" width="20px" height="20px" viewBox="-5 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" >
+                  <g id="Icon-Set-Filled" transform="translate(-575.000000, -829.000000)" fill="#000000">
+                    <path d="M586.256,845 C586.256,838.1 590.735,832.236 597,829.991 C595.243,829.361 593.353,829 591.372,829 C582.33,829 575,836.164 575,845 C575,853.837 582.33,861 591.372,861 C593.353,861 595.243,860.639 597,860.009 C590.735,857.764 586.256,851.901 586.256,845" id="moon">
 
                     </path>
                   </g>
                 </g>
               </svg>
 
-              <svg className="hidden dark:block" version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                width="20px" height="20px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+              <svg className="hidden dark:block" version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                width="20px" height="20px" viewBox="0 0 64 64" enable-background="new 0 0 64 64">
                 <g>
                   <circle fill-rule="evenodd" clip-rule="evenodd" fill="#FFC222" cx="32.003" cy="32.005" r="16.001" />
                   <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFC222" d="M12.001,31.997c0-2.211-1.789-4-4-4H4c-2.211,0-4,1.789-4,4
