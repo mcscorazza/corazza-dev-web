@@ -1,4 +1,4 @@
-import chroma from 'chroma-js';
+import chroma from "chroma-js";
 
 export type TailwindPalette = {
   50: string;
@@ -19,9 +19,10 @@ export function generatePalette(baseColor: string): TailwindPalette {
     throw new Error(`Cor base inválida: ${baseColor}`);
   }
 
-  const scale = chroma.scale(['#ffffff', baseColor, '#020617'])
-                      .mode('lch')
-                      .domain([0, 0.5, 1]);
+  const scale = chroma
+    .scale(["#ffffff", baseColor, "#000000"])
+    .mode("lch")
+    .domain([0, 0.5, 1]);
 
   return {
     50: scale(0.05).hex(),

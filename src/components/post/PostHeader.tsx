@@ -11,7 +11,7 @@ export const PostHeader = ({ post }: PostHeaderProps) => {
   return (
     <header className="mb-12">
 
-      <h1 className='text-4xl! text-(--line-color-700)! dark:text-(--line-color-200)! drop-shadow-sm font-extrabold mb-4'>Estação #{stationNumber}</h1>
+      <h1 className='text-4xl! text-(--line-color-700)! dark:text-(--line-color-200)! drop-shadow-sm font-extrabold mb-4 p-2'>Estação #{stationNumber}</h1>
 
       <div className='relative rounded-sm lg:rounded-xl overflow-hidden'>
         {post.coverImage && (
@@ -19,12 +19,12 @@ export const PostHeader = ({ post }: PostHeaderProps) => {
             className="w-full object-cover min-h-20"
           />
         )}
-        <h2 className='absolute inset-0 bg-black/30 text-(--line-color-50)! flex items-end justify-start drop-shadow-xl m-0! p-6 text-xl! lg:text-4xl! font-bold'>{post.title}</h2>
+        <h2 className='absolute inset-0 bg-black/40 text-(--line-color-50)! flex items-end justify-start drop-shadow-sm m-0! p-6 text-xl! lg:text-4xl! font-bold'>{post.title}</h2>
       </div>
       <div className="flex justify-center items-center gap-2 m-2">
         <small className='text-center tracking-wider text-sm text-(--line-color-600) dark:text-(--line-color-200) my-2'>{post.author} | {formatCustomDate(post.date)}</small>
         {post.tags && post.tags.split(',').map((tag, idx) => (
-          <span key={idx} className="text-(--line-color-300) text-sm font-medium border border-(--line-color-500) rounded-full py-1 px-3">
+          <span key={idx} className="text-(--line-color-300) text-xs font-medium border border-(--line-color-500) rounded-full py-px px-3 cursor-pointer hover:bg-black/10 dark:hover:bg-white/10">
             #{tag.trim()}
           </span>
         ))}

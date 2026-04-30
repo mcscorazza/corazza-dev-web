@@ -19,7 +19,7 @@ export const PostTrails = ({
 
   return (
     <div className='sticky top-28 p-6'>
-      <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">
+      <h3 className="text-sm font-bold text-(--line-color-400) uppercase tracking-widest mb-6">
         Explorar Mapa
       </h3>
 
@@ -32,16 +32,16 @@ export const PostTrails = ({
             <div
               key={trail.slug}
               className={`rounded-2xl border-2 transition-all overflow-hidden 
-                ${isCurrentTrail ? 'border-(--line-color) bg-(--line-color)/5 shadow-sm' : 'border-slate-800'}`}
+                ${isCurrentTrail ? 'border-(--line-color-500) bg-(--line-color-900)/50 shadow-sm' : 'border-slate-800'}`}
             >
               <button
                 onClick={() => onToggleTrail(trail.slug)}
                 className={`w-full text-left p-4 flex flex-col transition-colors 
-                  ${isExpanded ? 'bg-slate-900/40' : 'bg-slate-900/10 hover:bg-slate-800'}`}
+                  ${isExpanded ? 'bg-(--line-color-900)/30' : 'bg-(--line-color-900)/10 hover:bg-(--line-color-100) dark:hover:bg-(--line-color-800)'}`}
               >
                 <div className="flex flex-row items-center justify-between w-full">
                   <h4 className={`font-bold text-sm mt-1! 
-                    ${isCurrentTrail ? 'text-(--line-color)' : 'text-slate-300'}`}>
+                    ${isCurrentTrail ? 'text-(--line-color-500)' : 'text-theme-muted'}`}>
                     {trail.title}
                   </h4>
                   <span className="text-[14px] text-slate-500">
