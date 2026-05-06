@@ -1,19 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-
-// Ajuste as tipagens conforme o seu backend
-interface TrailSummary {
-  id: string;
-  title: string;
-  slug: string;
-  lines: {
-    title: string;
-    slug: string;
-    firstPostSlug?: string;
-  }[];
-  linesCount: number;
-  postsCount: number;
-}
+import { Post, TrailSummary } from '../@types';
 
 const apiUrl = import.meta.env.VITE_API_URL || 'https://api.corazza.dev/api';
 
@@ -23,7 +10,7 @@ export const Home = () => {
     queryFn: () => fetch(`${apiUrl}/trails`).then(res => res.json())
   });
 
-  const { data: recentPosts } = useQuery({
+  const { data: recentPosts } = useQuery<Post[]>({
     queryKey: ['recent-posts'],
     queryFn: () => fetch(`${apiUrl}/posts/recent/6`).then(res => res.json())
   });
@@ -38,9 +25,7 @@ export const Home = () => {
         <h1 className="text-4xl md:text-5xl font-black text-theme-text mb-4">
           Bem-vindo ao Blog
         </h1>
-        <p className="text-xl text-theme-muted max-w-2xl">
-          Explore nossas trilhas de aprendizado e acompanhe as estações mais recentes.
-        </p>
+
       </header>
 
       {/* SESSÃO 1: POSTS RECENTES */}

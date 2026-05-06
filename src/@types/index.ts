@@ -33,7 +33,11 @@ export interface Post {
 export interface TrailSummary {
   id: string;
   title: string;
-  lines: string[];
+  lines: {
+    title: string;
+    slug: string;
+    firstPostSlug?: string;
+  }[];
   slug: string;
   linesCount: number;
   postsCount: number;
