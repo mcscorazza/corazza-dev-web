@@ -30,7 +30,7 @@ export const PostContent = ({ content }: PostContentProps) => {
   const isDarkMode = useDarkMode();
   return (
     <article className="
-      bg-theme-bg2 p-6 rounded-xl lg:text-base
+      bg-theme-bg2 p-1 lg:p-6 rounded-xl lg:text-base
       prose prose-slate lg:prose-lg max-w-none
       prose-p:text-theme-text prose-p:leading-relaxed prose-p:text-justify prose-p:my-0!
       

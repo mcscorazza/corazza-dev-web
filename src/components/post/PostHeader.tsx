@@ -21,7 +21,7 @@ export const PostHeader = ({ post }: PostHeaderProps) => {
         )}
         <h2 className='absolute inset-0 bg-black/40 text-(--line-color-50)! flex items-end justify-start drop-shadow-sm m-0! p-6 text-xl! lg:text-4xl! font-bold'>{post.title}</h2>
       </div>
-      <div className="flex justify-center items-center gap-2 m-2">
+      <div className="flex justify-center items-center gap-2 m-2 wrap">
         <small className='text-center tracking-wider text-sm text-(--line-color-600) dark:text-(--line-color-200) my-2'>{post.author} | {formatCustomDate(post.date)}</small>
         {post.tags && post.tags.split(',').map((tag, idx) => (
           <span key={idx} className="text-(--line-color-300) text-xs font-medium border border-(--line-color-500) rounded-full py-px px-3 cursor-pointer hover:bg-black/10 dark:hover:bg-white/10">
