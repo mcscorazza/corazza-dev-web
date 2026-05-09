@@ -67,7 +67,7 @@ export const PostPage = () => {
         <PostSidebar line={currentPost.line} posts={linePosts || []} currentPostSlug={currentPost.slug} />
       </aside>
 
-      <main className="prose prose-sky p-1 xl:prose-xl mx-auto lg:p-4 min-w-0 max-w-full xl:max-w-250">
+      <main className="prose prose-sky p-2 xl:prose-xl mx-auto lg:p-4 min-w-0 max-w-full xl:max-w-250">
         <PostHeader post={currentPost} />
         <PostContent content={currentPost.content} />
       </main>
